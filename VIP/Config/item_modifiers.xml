@@ -1,0 +1,60 @@
+<Subquake>
+	
+
+<append xpath="/item_modifiers">    
+    
+<item_modifier name="vipModAttack" installable_tags="weapon,tool" type="attachment">
+	
+	<property name="CustomIcon" value="meleeWpnBladeT1CandyKnife"/>
+	<property name="CustomIconTint" value="255,0,255"/>
+	<property name="DescriptionKey" value="vipModAttackDesc"/>
+	<property name="Weight" value="1"/>
+    <property name="EconomicValue" value="0"/>
+	<property name="CarryWeight" value="1"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>	
+	<effect_group>
+		<passive_effect name="EntityDamage" operation="perc_add" value=".45"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value=".45"/>
+		<passive_effect name="AttacksPerMinute" operation="perc_add" value=".2" tags="melee"/> 
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value=".2" tags="ranged"/>
+	</effect_group>
+</item_modifier>
+
+<item_modifier name="vipModCritical" installable_tags="weapon,tool" type="attachment">
+	
+	<property name="CustomIcon" value="meleeWpnBladeT1CandyKnife"/>
+	<property name="CustomIconTint" value="0,255,255"/>
+	<property name="DescriptionKey" value="vipModCriticalDesc"/>
+	<property name="Weight" value="1"/>
+    <property name="EconomicValue" value="0"/>
+	<property name="CarryWeight" value="1"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>	
+	<effect_group>
+		<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar=".damageIncrease" operation="set" value="1"/>
+		<passive_effect name="DamageModifier" operation="perc_add" value="@.damageIncrease"/>	
+	</effect_group>
+</item_modifier>
+
+<item_modifier name="vipModControl" installable_tags="weapon,tool" type="attachment">
+	
+	<property name="CustomIcon" value="meleeWpnBladeT1CandyKnife"/>
+	<property name="CustomIconTint" value="0,0,255"/>
+	<property name="DescriptionKey" value="vipModControlDesc"/>
+	<property name="Weight" value="1"/>
+    <property name="EconomicValue" value="0"/>
+	<property name="CarryWeight" value="1"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>	
+	<effect_group>
+		<passive_effect name="DismemberChance" operation="base_add" value="30"/>
+		<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffBurningElement"/>
+	    <triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="10"/>
+		<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffShocked"/>			               
+	    <triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="otherAOE" range="1.1" target_tags="zombie,animal" buff="buffShocked"/>			
+	</effect_group>
+</item_modifier>
+
+    
+</append>
+    
+</Subquake>
