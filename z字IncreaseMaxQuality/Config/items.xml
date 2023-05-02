@@ -1,0 +1,20 @@
+<configs>
+
+<append xpath="/items">
+
+<item name="maxSuccess">
+	
+	<property name="DescriptionKey" value="maxSuccessDesc"/>
+	<property name="CustomIcon" value="schematicMaster"/> <property name="CustomIconTint" value="FF0000"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="foodRaw"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>	
+	<property name="Weight" value="1"/>
+	<property name="Material" value="Mpaper"/>
+	<property name="EconomicValue" value="0"/>
+	<property name="Stacknumber" value="10"/> 	
+
+</item>
+</append>
+</configs>

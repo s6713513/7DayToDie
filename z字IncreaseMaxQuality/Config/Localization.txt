@@ -1,0 +1,3 @@
+Key,schinese
+maxSuccess,升级必定成功书
+maxSuccessDesc,将物品放在背包里然后去维修台升级，升级完成后将会自动消耗1个
